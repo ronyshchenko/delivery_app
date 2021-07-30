@@ -1,3 +1,26 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'package/list'
+   get 'package/new'
+   post 'package/create'
+   patch 'package/update'
+   get 'package/list'
+   get 'package/show'
+   get 'package/edit'
+   get 'package/delete'
+   get 'package/update'
+   get 'package/show_courier'
+
+   get 'courier/list'
+   get 'courier/new'
+   get 'courier/new_package'
+   get 'courier/show_package'
+   post 'courier/create_package'
+   post 'courier/create'
+   patch 'courier/update'
+   get 'courier/list'
+   get 'courier/show'
+   get 'courier/edit'
+   get 'courier/delete'
+   get 'courier/update'
+   get 'courier/show_courier'
 end

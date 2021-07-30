@@ -1,0 +1,17 @@
+<h1>Add new package</h1>
+
+<%= form_tag :action => 'create_package' do %>
+<p><label for = "package_tracking_number">Tracking_number</label>:
+<%= text_field 'packages', 'tracking_number' %></p>
+
+<p><label for = "package_delivery_status">Delivery_status</label>:
+
+<%= text_field 'packages', 'delivery_status' %></p>
+
+<p><label for = "package_courier_id">Courier
+<%= collection_select(:packages, :courier_id, @couriers, :id, :name, prompt: 'true') %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>

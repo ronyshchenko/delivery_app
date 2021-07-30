@@ -1,0 +1,14 @@
+<h1><%= @package.tracking_number %></h1>
+
+<p>
+   <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+   <strong>Courier: </strong> <%= link_to @package.courier.name,
+:action => "show_couriers", :id => @package.courier.id %><br />
+   <strong>Created Date:</strong> <%= @package.created_at %><br />
+</p>
+
+<p><%= @package.delivery_status %></p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'list'} %>

@@ -1,0 +1,9 @@
+<h1><%= @courier.name -%></h1>
+
+<ul>
+   <% @courier.packages.each do |c| %>
+   <li><%= link_to c.name, :action => "show_package", :id => c.id -%></li>
+   <% end %>
+</ul>
+
+<p><%= link_to "Add new Package", {:action => 'new_package' }%></p>

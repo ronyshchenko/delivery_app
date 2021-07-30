@@ -1,0 +1,13 @@
+<h1>Add new courier</h1>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "courier_name">Name</label>:
+<%= text_field 'couriers', 'name' %></p>
+
+
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>
