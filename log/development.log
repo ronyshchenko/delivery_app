@@ -1,742 +1,2052 @@
   [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   ↳ bin/rails:9
-  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   ↳ bin/rails:9
-  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  ↳ bin/rails:9
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  ↳ bin/rails:9
-Migrating to CreateCouriers (20210730151401)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ bin/rails:9
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "couriers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
-  ↳ db/migrate/20210730151401_create_couriers.rb:3
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210730151401"]]
-  ↳ bin/rails:9
-  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
-  ↳ bin/rails:9
-Migrating to CreatePackages (20210730151947)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ bin/rails:9
-  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
-Migrating to CreatePackages (20210730151947)
+Migrating to CreateCouriers (20210731155957)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ bin/rails:9
-  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "couriers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210731155957_create_couriers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210731155957"]]
   ↳ bin/rails:9
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
   ↳ bin/rails:9
-Migrating to CreatePackages (20210730151947)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Migrating to CreatePackages (20210731160101)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
   ↳ bin/rails:9
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  ↳ db/migrate/20210730151947_create_packages.rb:3
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "packages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tracking_number" varchar(32) NOT NULL, "delivery_status" boolean, "courier_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_180ae67646"
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "packages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "courier_id" integer, "tracking_number" varchar, "delivery_status" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_180ae67646"
 FOREIGN KEY ("courier_id")
   REFERENCES "couriers" ("id")
 )[0m
-  ↳ db/migrate/20210730151947_create_packages.rb:3
+  ↳ db/migrate/20210731160101_create_packages.rb:3
   [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_packages_on_courier_id" ON "packages" ("courier_id")[0m
-  ↳ db/migrate/20210730151947_create_packages.rb:3
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210730151947"]]
+  ↳ db/migrate/20210731160101_create_packages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210731160101"]]
   ↳ bin/rails:9
-  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
-  ↳ bin/rails:9
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  ↳ bin/rails:9
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ bin/rails:9
-  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-30 15:37:18.084471"], ["updated_at", "2021-07-30 15:37:18.084471"]]
-  ↳ bin/rails:9
-  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
-  ↳ bin/rails:9
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  ↳ bin/rails:9
-Started GET "/" for ::1 at 2021-07-30 19:39:15 +0300
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (6.0ms)
-Completed 200 OK in 35ms (Views: 21.0ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/courier/list" for ::1 at 2021-07-30 19:39:34 +0300
-  
-ActionController::RoutingError (uninitialized constant CourierController):
-  
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `const_get'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `block in constantize'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `each'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `inject'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `constantize'
-actionpack (5.2.6) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
-actionpack (5.2.6) lib/action_dispatch/http/request.rb:81:in `controller_class'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:46:in `controller'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
-rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
-rack (2.2.3) lib/rack/etag.rb:27:in `call'
-rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
-rack (2.2.3) lib/rack/head.rb:12:in `call'
-actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
-rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
-rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
-activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
-activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/couriers/list" for ::1 at 2021-07-30 19:40:04 +0300
-  
-ActionController::RoutingError (No route matches [GET] "/couriers/list"):
-  
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier" for ::1 at 2021-07-30 19:40:36 +0300
-  
-ActionController::RoutingError (No route matches [GET] "/courier"):
-  
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:40:41 +0300
-  
-ActionController::RoutingError (uninitialized constant CourierController):
-  
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `const_get'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `block in constantize'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `each'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `inject'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `constantize'
-actionpack (5.2.6) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
-actionpack (5.2.6) lib/action_dispatch/http/request.rb:81:in `controller_class'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:46:in `controller'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
-rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
-rack (2.2.3) lib/rack/etag.rb:27:in `call'
-rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
-rack (2.2.3) lib/rack/head.rb:12:in `call'
-actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
-rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
-rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
-activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
-activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:41:27 +0300
-  
-LoadError (Unable to autoload constant CourierController, expected /home/ronyshchenko/Общедоступные/RoR/delivery_app/app/controllers/courier_controller.rb to define it):
-  
-activesupport (5.2.6) lib/active_support/dependencies.rb:511:in `load_missing_constant'
-activesupport (5.2.6) lib/active_support/dependencies.rb:195:in `const_missing'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `const_get'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:283:in `block in constantize'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `each'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `inject'
-activesupport (5.2.6) lib/active_support/inflector/methods.rb:281:in `constantize'
-activesupport (5.2.6) lib/active_support/dependencies.rb:582:in `get'
-activesupport (5.2.6) lib/active_support/dependencies.rb:613:in `constantize'
-actionpack (5.2.6) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
-actionpack (5.2.6) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
-actionpack (5.2.6) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
-actionpack (5.2.6) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
-rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
-rack (2.2.3) lib/rack/etag.rb:27:in `call'
-rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
-rack (2.2.3) lib/rack/head.rb:12:in `call'
-actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
-rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
-rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
-activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
-activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:43:40 +0300
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-Processing by CourierController#list as HTML
-Completed 406 Not Acceptable in 46ms (ActiveRecord: 0.0ms)
-
-
-  
-ActionController::UnknownFormat (CourierController#list is missing a template for this request format and variant.
-
-request.formats: ["text/html"]
-request.variant: []
-
-NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
-  
-actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
-actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
-actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
-activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
-actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
-activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
-activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
-activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
-actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
-activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
-actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
-actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
-actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
-actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
-rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
-rack (2.2.3) lib/rack/etag.rb:27:in `call'
-rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
-rack (2.2.3) lib/rack/head.rb:12:in `call'
-actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
-rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
-rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
-activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
-activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:44:30 +0300
-Processing by CourierController#list as HTML
-Completed 406 Not Acceptable in 22ms (ActiveRecord: 0.0ms)
-
-
-  
-ActionController::UnknownFormat (CourierController#list is missing a template for this request format and variant.
-
-request.formats: ["text/html"]
-request.variant: []
-
-NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
-  
-actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
-actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
-actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
-actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
-activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
-actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
-activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
-activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
-activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
-actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
-actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
-activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
-actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
-actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
-actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
-actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
-actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
-actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
-rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
-rack (2.2.3) lib/rack/etag.rb:27:in `call'
-rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
-rack (2.2.3) lib/rack/head.rb:12:in `call'
-actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
-rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
-rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
-activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
-activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
-actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/show" for ::1 at 2021-07-30 19:45:07 +0300
-Processing by CourierController#show as HTML
-Completed 404 Not Found in 22ms (ActiveRecord: 1.4ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Courier without an ID):
-  
-app/controllers/courier_controller.rb:7:in `show'
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
   ↳ bin/rails:9
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   ↳ bin/rails:9
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ bin/rails:9
-  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-31 16:06:31.618509"], ["updated_at", "2021-07-31 16:06:31.618509"]]
   ↳ bin/rails:9
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
   ↳ bin/rails:9
-Started GET "/subject/list" for ::1 at 2021-07-30 19:47:47 +0300
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/courier/list" for ::1 at 2021-07-31 19:17:28 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  
-ActionController::RoutingError (No route matches [GET] "/subject/list"):
-  
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:47:59 +0300
 Processing by CourierController#list as HTML
   Rendering courier/list.html.erb within layouts/application
-  [1m[36mCourier Load (2.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  [1m[36mCourier Load (1.9ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
   ↳ app/views/courier/list.html.erb:1
-  Rendered courier/list.html.erb within layouts/application (10.2ms)
-Completed 200 OK in 1148ms (Views: 1131.0ms | ActiveRecord: 2.9ms)
+  Rendered courier/list.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 1262ms (Views: 1226.2ms | ActiveRecord: 2.5ms)
 
 
-Started GET "/courier/new" for ::1 at 2021-07-30 19:48:05 +0300
+Started GET "/courier/new" for ::1 at 2021-07-31 19:17:34 +0300
 Processing by CourierController#new as HTML
   Rendering courier/new.html.erb within layouts/application
-  [1m[36mCourier Load (0.7ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" LIMIT ?[0m  [["LIMIT", 11]]
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  Rendered courier/new.html.erb within layouts/application (18.0ms)
-Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.6ms)
+  Rendered courier/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 122ms (Views: 102.7ms | ActiveRecord: 0.9ms)
 
 
-  
-ActionView::Template::Error (undefined method `email' for #<ActiveRecord::Relation []>):
-     6: <%= text_field 'couriers', 'name' %></p>
-     7: 
-     8: <p><label for = "courier_email">Email</label>:
-     9: <%= text_field 'couriers', 'email' %></p>
-    10: 
-    11: <%= submit_tag "Create" %>
-    12: 
-  
-app/views/courier/new.html.erb:9:in `block in _app_views_courier_new_html_erb__3968368943907458809_17240'
-app/views/courier/new.html.erb:3:in `_app_views_courier_new_html_erb__3968368943907458809_17240'
-Started GET "/courier/list" for ::1 at 2021-07-30 19:48:26 +0300
+Started POST "/courier/create" for ::1 at 2021-07-31 19:17:40 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ud+RpjdTrgIWZ/1oNoxFlkSDRf2qQE+6/JE6gDzKMSJ60rYbC86CZZqwMyA6ulCWn0JW9ssUSotfvvW+8A8W9w==", "courier"=>{"name"=>"Roman", "email"=>"roma@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (2.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[36mCourier Create (0.7ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Roman"], ["email", "roma@gmail.com"], ["created_at", "2021-07-31 16:17:40.353547"], ["updated_at", "2021-07-31 16:17:40.353547"]]
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 21ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:17:40 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.1ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 116ms (Views: 114.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/delete?id=1" for ::1 at 2021-07-31 19:17:46 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (3.5ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 40ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:17:46 +0300
 Processing by CourierController#list as HTML
   Rendering courier/list.html.erb within layouts/application
   [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
   ↳ app/views/courier/list.html.erb:1
-  Rendered courier/list.html.erb within layouts/application (5.2ms)
-Completed 200 OK in 112ms (Views: 109.6ms | ActiveRecord: 0.2ms)
+  Rendered courier/list.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 97ms (Views: 95.2ms | ActiveRecord: 0.2ms)
 
 
-Started GET "/courier/list/show" for ::1 at 2021-07-30 19:48:43 +0300
-  
-ActionController::RoutingError (No route matches [GET] "/courier/list/show"):
-  
-actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
-web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
-web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
-railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
-activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
-railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
-sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
-rack (2.2.3) lib/rack/method_override.rb:24:in `call'
-rack (2.2.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
-actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
-rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
-railties (5.2.6) lib/rails/engine.rb:524:in `call'
-puma (3.12.6) lib/puma/configuration.rb:227:in `call'
-puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
-puma (3.12.6) lib/puma/server.rb:476:in `process_client'
-puma (3.12.6) lib/puma/server.rb:334:in `block in run'
-puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/courier/show" for ::1 at 2021-07-30 19:49:00 +0300
-Processing by CourierController#show as HTML
-Completed 404 Not Found in 15ms (ActiveRecord: 0.0ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Courier without an ID):
-  
-app/controllers/courier_controller.rb:7:in `show'
-Started GET "/courier/new" for ::1 at 2021-07-30 19:49:06 +0300
+Started GET "/courier/new" for ::1 at 2021-07-31 19:17:48 +0300
 Processing by CourierController#new as HTML
   Rendering courier/new.html.erb within layouts/application
-  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" LIMIT ?[0m  [["LIMIT", 11]]
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  Rendered courier/new.html.erb within layouts/application (11.0ms)
-Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.2ms)
+  Rendered courier/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 84ms (Views: 82.0ms | ActiveRecord: 0.0ms)
 
 
-  
-ActionView::Template::Error (undefined method `email' for #<ActiveRecord::Relation []>):
-     6: <%= text_field 'couriers', 'name' %></p>
-     7: 
-     8: <p><label for = "courier_email">Email</label>:
-     9: <%= text_field 'couriers', 'email' %></p>
-    10: 
-    11: <%= submit_tag "Create" %>
-    12: 
-  
-app/views/courier/new.html.erb:9:in `block in _app_views_courier_new_html_erb__3968368943907458809_18960'
-app/views/courier/new.html.erb:3:in `_app_views_courier_new_html_erb__3968368943907458809_18960'
-Started GET "/courier/new" for ::1 at 2021-07-30 19:51:59 +0300
-Processing by CourierController#new as HTML
-  Rendering courier/new.html.erb within layouts/application
-  Rendered courier/new.html.erb within layouts/application (7.5ms)
-Completed 200 OK in 152ms (Views: 124.0ms | ActiveRecord: 3.4ms)
-
-
-Started GET "/courier/new" for ::1 at 2021-07-30 19:52:35 +0300
-Processing by CourierController#new as HTML
-  Rendering courier/new.html.erb within layouts/application
-  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" LIMIT ?[0m  [["LIMIT", 11]]
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  Rendered courier/new.html.erb within layouts/application (13.3ms)
-Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.4ms)
-
-
-  
-ActionView::Template::Error (undefined method `email' for #<ActiveRecord::Relation []>):
-     6: <%= text_field 'couriers', 'name' %></p>
-     7: 
-     8: <p><label for = "courier_email">Email</label>:
-     9: <%= text_field 'couriers', 'email' %></p>
-    10: 
-    11: <%= submit_tag "Create" %>
-    12: 
-  
-app/views/courier/new.html.erb:9:in `block in _app_views_courier_new_html_erb__3968368943907458809_23840'
-app/views/courier/new.html.erb:3:in `_app_views_courier_new_html_erb__3968368943907458809_23840'
-Started GET "/courier/new" for ::1 at 2021-07-30 19:53:40 +0300
-Processing by CourierController#new as HTML
-  Rendering courier/new.html.erb within layouts/application
-  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" LIMIT ?[0m  [["LIMIT", 11]]
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  Rendered courier/new.html.erb within layouts/application (15.1ms)
-Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionView::Template::Error (undefined method `email' for #<ActiveRecord::Relation []>):
-     6: <%= text_field 'couriers', 'name' %></p>
-     7: 
-     8: # <p><label for = "courier_email">Email</label>:
-     9: # <%= text_field 'couriers', 'email' %></p>
-    10: 
-    11: <%= submit_tag "Create" %>
-    12: 
-  
-app/views/courier/new.html.erb:9:in `block in _app_views_courier_new_html_erb__3968368943907458809_24380'
-app/views/courier/new.html.erb:3:in `_app_views_courier_new_html_erb__3968368943907458809_24380'
-Started GET "/courier/new" for ::1 at 2021-07-30 19:58:02 +0300
-Processing by CourierController#new as HTML
-  Rendering courier/new.html.erb within layouts/application
-  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" LIMIT ?[0m  [["LIMIT", 11]]
-  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
-  Rendered courier/new.html.erb within layouts/application (17.2ms)
-Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionView::Template::Error (undefined method `email' for #<ActiveRecord::Relation []>):
-     6: <%= text_field 'couriers', 'name' %></p>
-     7: 
-     8: <p><label for = "courier_email">Email</label>:
-     9: <%= text_field 'couriers', 'email' %></p>
-    10: 
-    11: <%= submit_tag "Create" %>
-    12: 
-  
-app/views/courier/new.html.erb:9:in `block in _app_views_courier_new_html_erb__3968368943907458809_24900'
-app/views/courier/new.html.erb:3:in `_app_views_courier_new_html_erb__3968368943907458809_24900'
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:41 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:44 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:47 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:48 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:50 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:52 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 19:58:58 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 20:00:03 +0300
-Started POST "/__web_console/repl_sessions/40686a6db9883c6d85d871eda7ed7793/trace" for ::1 at 2021-07-30 20:00:10 +0300
-Started GET "/courier/new" for ::1 at 2021-07-30 20:02:49 +0300
-Processing by CourierController#new as HTML
-  Rendering courier/new.html.erb within layouts/application
-  Rendered courier/new.html.erb within layouts/application (3.3ms)
-Completed 200 OK in 95ms (Views: 93.3ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/courier/create" for ::1 at 2021-07-30 20:03:12 +0300
+Started POST "/courier/create" for ::1 at 2021-07-31 19:17:55 +0300
 Processing by CourierController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gymDJ0CVdivenvXjNjPLnZE1jDTUs+S6RvD40npJt3rnZMoMQyfNH+8dJHYlUWWxA6kUn/wYsLxbLnR4q2arVw==", "couriers"=>{"name"=>"Петров Петр Петрович"}, "commit"=>"Create"}
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tKe+imHbloiGrvq713KuVVhZ7QB878Gxlz5P6ObEqqB3qpk3XUa67wp5NPPbRLtVg5j+Cx27xIA0EYDWKgGNdQ==", "courier"=>{"name"=>"Roman", "email"=>"roma@gmail.com"}, "commit"=>"Create"}
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/courier_controller.rb:51
-  [1m[36mCourier Create (5.0ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Петров Петр Петрович"], ["created_at", "2021-07-30 17:03:12.646310"], ["updated_at", "2021-07-30 17:03:12.646310"]]
+  [1m[36mCourier Create (1.7ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Roman"], ["email", "roma@gmail.com"], ["created_at", "2021-07-31 16:17:55.368513"], ["updated_at", "2021-07-31 16:17:55.368513"]]
   ↳ app/controllers/courier_controller.rb:51
-  [1m[35m (14.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/courier_controller.rb:51
 Redirected to http://localhost:3000/courier/list
-Completed 302 Found in 29ms (ActiveRecord: 19.3ms)
+Completed 302 Found in 16ms (ActiveRecord: 7.2ms)
 
 
-Started GET "/courier/list" for ::1 at 2021-07-30 20:03:12 +0300
+Started GET "/courier/list" for ::1 at 2021-07-31 19:17:55 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 116ms (Views: 114.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:17:56 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-07-31 19:18:13 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AKvARTqusdSDx3fGOVVcnxwP+qodx2Ff0DKjxtipAfLDpuf4BjOdsw8QuY41Y0mfx87poXyTZG5zHWz4FGwmJw==", "courier"=>{"name"=>"Nata", "email"=>"nata@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[36mCourier Create (1.5ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nata"], ["email", "nata@gmail.com"], ["created_at", "2021-07-31 16:18:13.026605"], ["updated_at", "2021-07-31 16:18:13.026605"]]
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 16ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:18:13 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (2.7ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 110ms (Views: 105.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:18:16 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 85ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-07-31 19:18:28 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UW8TT8U8QXnZLA/wugB3029bwt0lqTqNZR8ClpGHjK6SYjTy+aFtHlX7wbi2NmLTtJrR1kT9P7zGMM2oXUKrew==", "courier"=>{"name"=>"Polina", "email"=>"polya@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[36mCourier Create (1.5ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Polina"], ["email", "polya@gmail.com"], ["created_at", "2021-07-31 16:18:28.956327"], ["updated_at", "2021-07-31 16:18:28.956327"]]
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 16ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:18:28 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 114ms (Views: 112.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:18:34 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 98ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:18:45 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 105ms (Views: 102.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:18:47 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 99ms (Views: 97.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-07-31 19:18:57 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gQs2fEGQjzU1bjh4QbNw6pxRYa1zNYo8H0UPGp5z24FCBhHBfQ2jUrm59jBNhWXqR5ByphJhjw28asAkUrb8VA==", "courier"=>{"name"=>"Vera", "email"=>"vera@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[36mCourier Create (4.1ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Vera"], ["email", "vera@gmail.com"], ["created_at", "2021-07-31 16:18:57.136130"], ["updated_at", "2021-07-31 16:18:57.136130"]]
+  ↳ app/controllers/courier_controller.rb:51
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:51
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 24ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:18:57 +0300
 Processing by CourierController#list as HTML
   Rendering courier/list.html.erb within layouts/application
   [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
   ↳ app/views/courier/list.html.erb:1
   [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
   ↳ app/views/courier/list.html.erb:7
-  Rendered courier/list.html.erb within layouts/application (28.0ms)
-Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.4ms)
+  Rendered courier/list.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 115ms (Views: 113.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/edit?id=2" for ::1 at 2021-07-31 19:19:02 +0300
+Processing by CourierController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:65
+  Rendering courier/edit.html.erb within layouts/application
+  Rendered courier/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 92ms (Views: 87.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/courier/update?id=2" for ::1 at 2021-07-31 19:19:11 +0300
+Processing by CourierController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SQFdBsuWLUSxJrvEHeymJYmMVlykZNhZIcScfuxG1iRC7EudBFgjf63dwynHcxy/f26zvBUePCZJEZ2kXU4baw==", "courier"=>{"name"=>"RomanNew", "email"=>"romanew@gmail.com"}, "commit"=>"Save changes", "id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:70
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:72
+  [1m[36mCourier Update (4.3ms)[0m  [1m[33mUPDATE "couriers" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "couriers"."id" = ?[0m  [["name", "RomanNew"], ["email", "romanew@gmail.com"], ["updated_at", "2021-07-31 16:19:11.564326"], ["id", 2]]
+  ↳ app/controllers/courier_controller.rb:72
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:72
+Redirected to http://localhost:3000/courier/show?id=2
+Completed 302 Found in 24ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/courier/show?id=2" for ::1 at 2021-07-31 19:19:11 +0300
+Processing by CourierController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:7
+  Rendering courier/show.html.erb within layouts/application
+  Rendered courier/show.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.2ms)
 
 
   
-ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>1}):
-     6: <ul id = "couriers">
-     7: <% Courier.all.each do |c| %>
-     8:     <li>
-     9:     <%= link_to c.name, {:action => 'show_couriers', :id => c.id} -%>
-    10:     <b> <%= link_to 'Edit', {:action => 'edit', :id => c.id} %></b>
-    11:     <b> <%= link_to "Delete", {:action => 'delete', :id => c.id}, :confirm => "Are you sure you want to delete this item?" %></b>
-    12:  </li>
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Name: </strong> $<%= @courier.name %><br />
+    5:    <strong>Courier: </strong> <%= link_to @courier.name,
+    6: :action => "show_couriers", :id => @courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @courier.created_at %><br />
+    8: </p>
   
-app/views/courier/list.html.erb:9:in `block in _app_views_courier_list_html_erb__718739479702612578_25560'
-app/views/courier/list.html.erb:7:in `_app_views_courier_list_html_erb__718739479702612578_25560'
-Started POST "/__web_console/repl_sessions/53a8b7124caa13bc19ca5d7e3dbe7bea/trace" for ::1 at 2021-07-30 20:03:28 +0300
-Started POST "/__web_console/repl_sessions/53a8b7124caa13bc19ca5d7e3dbe7bea/trace" for ::1 at 2021-07-30 20:03:31 +0300
-Started POST "/__web_console/repl_sessions/53a8b7124caa13bc19ca5d7e3dbe7bea/trace" for ::1 at 2021-07-30 20:03:33 +0300
+app/views/courier/show.html.erb:5:in `_app_views_courier_show_html_erb___197145545420484696_18620'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:19:19 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 99ms (Views: 97.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:22:25 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 148ms (Views: 141.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:22:26 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 125ms (Views: 101.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:22:52 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 94ms (Views: 90.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:22:56 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 90ms (Views: 87.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-07-31 19:23:06 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rOdQRnip09PfQkzQxrppLKnLE4/KdiJ6Oou8pOBPZ15a6q/9LAKufAVy9LIYgwcBO7WkwfNEtXbT3FkedcpV9Q==", "packages"=>{"tracking_number"=>"123", "delivery_status"=>"true", "courier_id"=>"2"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mPackage Create (5.0ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 2], ["tracking_number", "123"], ["delivery_status", 1], ["created_at", "2021-07-31 16:23:06.455875"], ["updated_at", "2021-07-31 16:23:06.455875"]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 57ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:23:06 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 83ms (Views: 81.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:23:13 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Package:0x00007f2c5905a050>):
+    2: 
+    3: <ul>
+    4:    <% @courier.packages.each do |c| %>
+    5:    <li><%= link_to c.name, :action => "show_package", :id => c.id -%></li>
+    6:    <% end %>
+    7: </ul>
+    8: 
+  
+app/views/courier/show_courier.html.erb:5:in `block in _app_views_courier_show_courier_html_erb__2276591005749241046_19640'
+app/views/courier/show_courier.html.erb:4:in `_app_views_courier_show_courier_html_erb__2276591005749241046_19640'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:24:10 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 109ms (Views: 106.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:24:12 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (24.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Package:0x00007f2c59805b38>):
+    2: 
+    3: <ul>
+    4:    <% @courier.packages.each do |c| %>
+    5:    <li><%= link_to c.name, :action => "show_package", :id => c.id -%></li>
+    6:    <% end %>
+    7: </ul>
+    8: 
+  
+app/views/courier/show_courier.html.erb:5:in `block in _app_views_courier_show_courier_html_erb__2276591005749241046_20240'
+app/views/courier/show_courier.html.erb:4:in `_app_views_courier_show_courier_html_erb__2276591005749241046_20240'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:29:32 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 146ms (Views: 144.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:29:33 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.5ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 138ms (Views: 129.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:29:37 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.5ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_20940'
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:29:39 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:29:43 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 100ms (Views: 97.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-07-31 19:29:53 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nw9s/eAJkzs5lJB3IUZCbUp6JK2hn8YuYcxFFfPBE65pApNGtKLulOOkKBX/fyxA2AST45itUSKIm6CvZkQhBQ==", "packages"=>{"tracking_number"=>"1234", "delivery_status"=>"true", "courier_id"=>"2"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mPackage Create (4.9ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 2], ["tracking_number", "1234"], ["delivery_status", 1], ["created_at", "2021-07-31 16:29:53.479829"], ["updated_at", "2021-07-31 16:29:53.479829"]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 19ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:29:53 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 105ms (Views: 103.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:29:56 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 102ms (Views: 97.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/edit?id=2" for ::1 at 2021-07-31 19:30:05 +0300
+Processing by CourierController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:65
+  Rendering courier/edit.html.erb within layouts/application
+  Rendered courier/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 94ms (Views: 91.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:30:14 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 99ms (Views: 96.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/delete?id=5" for ::1 at 2021-07-31 19:30:20 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (2.0ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 16ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:30:20 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 94ms (Views: 91.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:30:31 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 118ms (Views: 113.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:30:32 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 110ms (Views: 107.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-07-31 19:30:42 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fyi8b7r9bziIMPubBFfh1MUq8zL4XIRZ8306sGDoLS3hJUPU7lYSl1IAQ/nabo/5V1REfMFuE1UaKt8K9W0fhg==", "packages"=>{"tracking_number"=>"123", "delivery_status"=>"true", "courier_id"=>"3"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mPackage Create (0.6ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 3], ["tracking_number", "123"], ["delivery_status", 1], ["created_at", "2021-07-31 16:30:42.104372"], ["updated_at", "2021-07-31 16:30:42.104372"]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 20ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:30:42 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 101ms (Views: 98.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:30:44 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/show_package?id=3" for ::1 at 2021-07-31 19:30:46 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>3}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_22400'
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:30:48 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 107ms (Views: 102.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:31:09 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 91ms (Views: 87.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:31:10 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 126ms (Views: 122.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:31:34 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (2.1ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_23160'
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:32:54 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 235ms (Views: 188.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:32:58 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/courier/show_courier"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:33:14 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.5ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 203ms (Views: 156.9ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:33:17 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (3.5ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_33840'
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:33:31 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (3.7ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_34360'
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:33:34 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show_couriers", :controller=>"courier", :id=>2}):
+    2: 
+    3: <p>
+    4:    <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+    5:    <strong>Courier: </strong> <%= link_to @package.courier.name,
+    6: :action => "show_couriers", :id => @package.courier.id %><br />
+    7:    <strong>Created Date:</strong> <%= @package.created_at %><br />
+    8: </p>
+  
+app/views/courier/show_package.html.erb:5:in `_app_views_courier_show_package_html_erb___513420509827099316_34880'
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:33:48 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.5ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 204ms (Views: 168.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:33:51 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 107ms (Views: 100.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:33:52 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 113ms (Views: 110.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:33:54 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 113ms (Views: 109.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:33:55 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 107ms (Views: 99.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:33:57 +0300
+  
+AbstractController::ActionNotFound (The action 'show_couriers' could not be found for CourierController):
+  
+actionpack (5.2.6) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:34:03 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 104ms (Views: 100.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:34:10 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 122ms (Views: 119.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:34:23 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 97ms (Views: 93.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_courier?id=4" for ::1 at 2021-07-31 19:34:26 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 4]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 115ms (Views: 111.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:34:30 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 90ms (Views: 82.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_package?id=3" for ::1 at 2021-07-31 19:34:31 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 94ms (Views: 90.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_couriers?id=3" for ::1 at 2021-07-31 19:34:35 +0300
+  
+AbstractController::ActionNotFound (The action 'show_couriers' could not be found for CourierController):
+  
+actionpack (5.2.6) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/show_couriers?id=3" for ::1 at 2021-07-31 19:35:15 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (1.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+Completed 406 Not Acceptable in 52ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionController::UnknownFormat (CourierController#show_couriers is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:35:24 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 100ms (Views: 97.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:35:26 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 166ms (Views: 156.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:35:27 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 109ms (Views: 101.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:35:29 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+Completed 406 Not Acceptable in 27ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (CourierController#show_couriers is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:36:13 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_couriers.html.erb:4
+  Rendered courier/show_couriers.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 99ms (Views: 95.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:36:15 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 94ms (Views: 89.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:36:16 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (1.8ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_couriers.html.erb:4
+  Rendered courier/show_couriers.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 94ms (Views: 88.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:36:21 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 106ms (Views: 104.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-07-31 19:36:30 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MMm9i0iPuTedp/69CcRpKC64A8MIRFWUXKcvcMokJEbGxEIwHCTEmEeXRt/X/QcFvMa0jTF2wpi18MrKX6EW7Q==", "packages"=>{"tracking_number"=>"tfyfhf", "delivery_status"=>"true", "courier_id"=>"2"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[36mPackage Create (5.8ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 2], ["tracking_number", "tfyfhf"], ["delivery_status", 1], ["created_at", "2021-07-31 16:36:30.033325"], ["updated_at", "2021-07-31 16:36:30.033325"]]
+  ↳ app/controllers/courier_controller.rb:30
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:30
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 25ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:36:30 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.1ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 94ms (Views: 92.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:36:33 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 102ms (Views: 98.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_package?id=4" for ::1 at 2021-07-31 19:36:35 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 101ms (Views: 95.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:36:39 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_couriers.html.erb:4
+  Rendered courier/show_couriers.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 103ms (Views: 99.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:36:43 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 120ms (Views: 117.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:38:27 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 114ms (Views: 111.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:38:32 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 96ms (Views: 90.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:40:04 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 93ms (Views: 89.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:40:18 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 90ms (Views: 87.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:40:28 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 87ms (Views: 82.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:40:35 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 73ms (Views: 68.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:40:37 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 83ms (Views: 80.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:40:47 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 106ms (Views: 104.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:04 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:06 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 83ms (Views: 81.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=4" for ::1 at 2021-07-31 19:41:12 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 4]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 89ms (Views: 86.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package" for ::1 at 2021-07-31 19:41:14 +0300
+Processing by CourierController#new_package as HTML
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:12
+  Rendered courier/new_package.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 93ms (Views: 91.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=3" for ::1 at 2021-07-31 19:41:24 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 78ms (Views: 73.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:41:33 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 73ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:37 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 104ms (Views: 102.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/delete?id=4" for ::1 at 2021-07-31 19:41:40 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (7.3ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 21ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:40 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 82ms (Views: 79.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/delete?id=3" for ::1 at 2021-07-31 19:41:44 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (3.1ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 6.4ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "couriers" WHERE "couriers"."id" = ?):
+  
+app/controllers/courier_controller.rb:86:in `delete'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:47 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 82ms (Views: 80.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/delete?id=2" for ::1 at 2021-07-31 19:41:51 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (4.1ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (6.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 11.1ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "couriers" WHERE "couriers"."id" = ?):
+  
+app/controllers/courier_controller.rb:86:in `delete'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:41:53 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:41:55 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 84ms (Views: 77.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_package?id=1" for ::1 at 2021-07-31 19:41:58 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 96ms (Views: 89.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:42:00 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_couriers.html.erb:4
+  Rendered courier/show_couriers.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 100ms (Views: 94.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:42:45 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 85ms (Views: 83.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:42:47 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 100ms (Views: 97.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-07-31 19:53:19 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 108ms (Views: 105.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-07-31 19:53:30 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 85ms (Views: 82.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/delete?id=3" for ::1 at 2021-07-31 19:53:37 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (4.4ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 7.8ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "couriers" WHERE "couriers"."id" = ?):
+  
+app/controllers/courier_controller.rb:86:in `delete'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:53:39 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 78ms (Views: 76.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/delete?id=2" for ::1 at 2021-07-31 19:53:41 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[36mCourier Destroy (1.4ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/courier_controller.rb:86
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courier_controller.rb:86
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "couriers" WHERE "couriers"."id" = ?):
+  
+app/controllers/courier_controller.rb:86:in `delete'
+Started GET "/courier/list" for ::1 at 2021-07-31 19:53:43 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 91ms (Views: 88.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/packge/list" for ::1 at 2021-07-31 19:53:52 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/packge/list"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/package/list" for ::1 at 2021-07-31 19:54:00 +0300
+Processing by PackageController#list as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template layouts/standard with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ronyshchenko/Общедоступные/RoR/delivery_app/app/views"
+):
+  
+actionview (5.2.6) lib/action_view/path_set.rb:48:in `find'
+actionview (5.2.6) lib/action_view/lookup_context.rb:116:in `find'
+actionview (5.2.6) lib/action_view/renderer/abstract_renderer.rb:20:in `find_template'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:89:in `resolve_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:96:in `resolve_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:76:in `find_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:60:in `render_with_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:16:in `render'
+actionview (5.2.6) lib/action_view/renderer/renderer.rb:44:in `render_template'
+actionview (5.2.6) lib/action_view/renderer/renderer.rb:25:in `render'
+actionview (5.2.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.2.6) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+actionview (5.2.6) lib/action_view/rendering.rb:84:in `render_to_body'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.2.6) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+actionpack (5.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:46:in `block (2 levels) in render'
+activesupport (5.2.6) lib/active_support/core_ext/benchmark.rb:14:in `block in ms'
+/home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/2.7.0/benchmark.rb:308:in `realtime'
+activesupport (5.2.6) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:46:in `block in render'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:31:in `cleanup_view_runtime'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:45:in `render'
+actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:35:in `default_render'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/package/list" for ::1 at 2021-07-31 19:54:27 +0300
+Processing by PackageController#list as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template layouts/standard with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ronyshchenko/Общедоступные/RoR/delivery_app/app/views"
+):
+  
+actionview (5.2.6) lib/action_view/path_set.rb:48:in `find'
+actionview (5.2.6) lib/action_view/lookup_context.rb:116:in `find'
+actionview (5.2.6) lib/action_view/renderer/abstract_renderer.rb:20:in `find_template'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:89:in `resolve_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:96:in `resolve_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:76:in `find_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:60:in `render_with_layout'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.2.6) lib/action_view/renderer/template_renderer.rb:16:in `render'
+actionview (5.2.6) lib/action_view/renderer/renderer.rb:44:in `render_template'
+actionview (5.2.6) lib/action_view/renderer/renderer.rb:25:in `render'
+actionview (5.2.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.2.6) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+actionview (5.2.6) lib/action_view/rendering.rb:84:in `render_to_body'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.2.6) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+actionpack (5.2.6) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:46:in `block (2 levels) in render'
+activesupport (5.2.6) lib/active_support/core_ext/benchmark.rb:14:in `block in ms'
+/home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/2.7.0/benchmark.rb:308:in `realtime'
+activesupport (5.2.6) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:46:in `block in render'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:31:in `cleanup_view_runtime'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:45:in `render'
+actionpack (5.2.6) lib/action_controller/metal/implicit_render.rb:35:in `default_render'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.6) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.6) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.6) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.6) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.6) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.6) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.6) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.6) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.6) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.6) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.6) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.6) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/courier/show_package?id=4" for ::1 at 2021-07-31 19:55:03 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:12
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 87ms (Views: 80.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/show_couriers?id=2" for ::1 at 2021-07-31 19:55:07 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:95
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_couriers.html.erb:4
+  Rendered courier/show_couriers.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 106ms (Views: 102.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-07-31 19:55:31 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:91
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:4
+  Rendered courier/show_courier.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 91ms (Views: 87.8ms | ActiveRecord: 0.4ms)
+
+

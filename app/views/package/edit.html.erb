@@ -1,13 +1,10 @@
-<h1>Edit Book Detail</h1>
+<h1>Edit Package Detail</h1>
 
-<%= form_for @book, :url =>{:action => "update", :id =>@book} do |f| %>
+<%= form_for @package, :url =>{:action => "update", :id =>@package} do |f| %>
 
-<p>Title: <%= f.text_field 'title' %></p>
-<p>Price: <%= f.text_field  'price' %></p>
-<p>Subject: <%= f.collection_select :subject_id, Subject.all, :id, :name %></p>
-<p>Description<br/>
-
-<%= f.text_area 'description' %></p>
+<p>Tracking_number: <%= f.text_field 'tracking_number`' %></p>
+<p>Delivery_status: <%= f.text_field  'delivery_status' %></p>
+<p>Courier: <%= f.collection_select :courier_id, Courier.all, :id, :name, :email %></p>
 <%= f.submit "Save changes" %>
 <% end %>
 

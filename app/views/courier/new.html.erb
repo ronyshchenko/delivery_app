@@ -3,9 +3,10 @@
 <%= form_tag :action => 'create' do %>
 
 <p><label for = "courier_name">Name</label>:
-<%= text_field 'couriers', 'name' %></p>
+<%= text_field 'courier', 'name' %></p>
 
-
+<p><label for = "courier_email">Email</label>:
+<%= text_field 'courier', 'email' %></p>
 
 <%= submit_tag "Create" %>
 

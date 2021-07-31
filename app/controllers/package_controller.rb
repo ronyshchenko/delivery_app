@@ -56,7 +56,7 @@ class PackageController < ApplicationController
 redirect_to :action => 'list'
     end
     
-    def show_couriers
+    def show_courier
         @courier = Courier.find(params[:id])
      end 
 end

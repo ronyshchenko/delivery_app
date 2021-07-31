@@ -1,18 +1,18 @@
-<h1>Add new book</h1>
+<h1>Add new package</h1>
 
 <%= form_tag :action => 'create' do %>
-<p><label for = "book_title">Title</label>:
+<p><label for = "package_tracking_number">Tracking_number</label>:
 
-<%= text_field 'books', 'title' %></p>
-<p><label for = "book_price">Price</label>:
+<%= text_field 'packages', 'tracking_number' %></p>
 
-<%= text_field 'books', 'price' %></p>
-<p><label for = "book_subject_id">Subject</label>:
 
-<%= collection_select(:books, :subject_id, @subjects, :id, :name, prompt: 'true') %></p>
-<p><label for = "book_description">Description</label><br/>
+<p><label for = "package_delivery_status">Delivery_status</label>:
 
-<%= text_area 'books', 'description' %></p>
+<%= text_field 'books', 'delivery_status' %></p>
+
+<p><label for = "package_courier_id">Courier</label>:
+
+<%= collection_select(:packages, :courier_id, @couriers, :id, :name, prompt: 'true') %></p>
 <%= submit_tag "Create" %>
 
 <% end -%>

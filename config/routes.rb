@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'rails/generate'
+  get 'rails/controller'
+  get 'rails/Package'
   get 'package/list'
    get 'package/new'
    post 'package/create'
@@ -23,4 +26,5 @@ Rails.application.routes.draw do
    get 'courier/delete'
    get 'courier/update'
    get 'courier/show_courier'
+   get 'courier/show_couriers'
 end

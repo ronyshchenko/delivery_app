@@ -21,7 +21,7 @@ class CourierController < ApplicationController
 
     def new_package
       @package = Package.new
-@subjects = Subject.all
+@couriers = Courier.all
   end
   
   def create_package
@@ -58,7 +58,7 @@ class CourierController < ApplicationController
      end
      
      def courier_params
-        params.require(:couriers).permit(:name, :email)
+        params.require(:courier).permit(:name, :email)
      end
     
     def edit
@@ -87,8 +87,12 @@ class CourierController < ApplicationController
 redirect_to :action => 'list'
     end
     
-    def show_couriers
+    def show_courier
         @courier = Courier.find(params[:id])
      end  
+   
+     def show_couriers
+      @courier = Courier.find(params[:id])
+   end  
 end
 
