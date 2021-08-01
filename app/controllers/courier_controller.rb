@@ -1,5 +1,5 @@
 class CourierController < ApplicationController
-   
+   layout 'application'
     def list
         @couriers = Courier.all
     end

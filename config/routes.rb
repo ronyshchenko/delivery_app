@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'courier#list'
   get 'rails/generate'
   get 'rails/controller'
   get 'rails/Package'
