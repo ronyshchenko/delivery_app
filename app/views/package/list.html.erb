@@ -1,12 +1,7 @@
 <% if @packages.blank? %>
 <p>There are not any packages currently in the system.</p>
 <% else %>
-<p>These are the current packages in our system</p>
-<ul id = "couriers">
-   <% Courier.all.each do |c| %>
-   <li><%= link_to c.name, :action => "show_couriers", :id => c.id %></li>
-   <% end %>
-</ul>
+
 <ul id = "packages">
    <% @packages.each do |c| %>
     <li>

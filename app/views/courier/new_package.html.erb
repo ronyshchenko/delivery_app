@@ -8,8 +8,7 @@
 
 <%= text_field 'packages', 'delivery_status' %></p>
 
-<p><label for = "package_courier_id">Courier
-<%= collection_select(:packages, :courier_id, @couriers, :id, :name, prompt: 'true') %></p>
+<%= collection_select(:packages, :courier_id, @couriers, :id, :name, {:selected => @courier.id}) %></p>
 
 <%= submit_tag "Create" %>
 

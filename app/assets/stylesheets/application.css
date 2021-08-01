@@ -1,7 +1,7 @@
 body {
     font-family: Helvetica, Geneva, Arial, sans-serif;
     font-size: small;
-    font-color: #000;
+    color: #000;
     background-color: #fff;
  }
  
@@ -37,12 +37,13 @@ body {
     margin-top: 15px;
  }
  
- ul#books {
+ ul#packages {
     list-style-type: none;
  }
  
- ul#books li {
+ ul#packages li {
     line-height: 140%;
+    list-style-type: none;
  }
  
  div#sidebar {
@@ -50,16 +51,20 @@ body {
     margin-left: 480px;
  }
  
- ul#subjects {
+ ul#couriers {
     width: 700px;
-    text-align: center;
     padding: 5px;
     background-color: #ececec;
     border: 1px solid #ccc;
     margin-bottom: 20px;
  }
  
- ul#subjects li {
-    display: inline;
+ ul#couriers li {
     padding-left: 5px;
+    list-style-type: none;
  }
+
+li {
+   padding-left: 5px;
+   list-style-type: none;
+}

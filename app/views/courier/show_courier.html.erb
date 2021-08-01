@@ -1,9 +1,11 @@
-<h1><%= @courier.name -%></h1>
-
+<h3>Name of courier is: <%= @courier.name -%></h1>
+<h3>Email is: <%= @courier.email -%></h3>
+<h3>List of packages:</h3>
 <ul>
    <% @courier.packages.each do |c| %>
    <li><%= link_to c.tracking_number, :action => "show_package", :id => c.id -%></li>
    <% end %>
 </ul>
 
-<p><%= link_to "Add new Package", {:action => 'new_package' }%></p>
+<p><%= link_to "Add new Package", {:action => 'new_package', :id => @courier.id}%></p>
+<%= link_to 'Back', {:action => 'list'} %>

@@ -1,4 +1,5 @@
 class CourierController < ApplicationController
+   
     def list
         @couriers = Courier.all
     end
@@ -20,6 +21,7 @@ class CourierController < ApplicationController
 
 
     def new_package
+      @courier = Courier.find(params[:id])
       @package = Package.new
 @couriers = Courier.all
   end
@@ -30,7 +32,7 @@ class CourierController < ApplicationController
       if @package.save
          redirect_to :action => 'list'
       else
-         @subjects = Subject.all
+         @courier = Courier.all
          render :action => 'new'
       end
       

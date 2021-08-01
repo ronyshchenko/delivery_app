@@ -1,13 +1,11 @@
-<h1><%= @package.tracking_number %></h1>
+<h3>Tracking_number of package is: <%= @package.tracking_number %></h3>
 
 <p>
-   <strong>Delivery_status: </strong> $<%= @package.delivery_status %><br />
+   <strong>Delivery_status: </strong> <%= @package.delivery_status %><br />
    <strong>Courier: </strong> <%= link_to @package.courier.name,
 :action => "show_couriers", :id => @package.courier.id %><br />
    <strong>Created Date:</strong> <%= @package.created_at %><br />
 </p>
-
-<p><%= @package.delivery_status %></p>
 
 <hr />
 
