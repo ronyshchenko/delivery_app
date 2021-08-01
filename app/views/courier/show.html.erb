@@ -1,7 +1,7 @@
 <h1><%= @courier.name %></h1>
 
 <p>
-   <strong>Name: </strong> $<%= @courier.name %><br />
+   <strong>Name: </strong> <%= @courier.name %><br />
    <strong>Courier: </strong> <%= link_to @courier.name,
 :action => "show_couriers", :id => @courier.id %><br />
    <strong>Created Date:</strong> <%= @courier.created_at %><br />

@@ -8261,3 +8261,791 @@ Processing by CourierController#list as HTML
 Completed 200 OK in 516ms (Views: 513.7ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/courier/list" for ::1 at 2021-08-01 14:01:51 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ronyshchenko/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.1ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 459ms (Views: 440.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/courier/show_courier?id=2" for ::1 at 2021-08-01 14:01:54 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (1.8ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (88.3ms)
+Completed 200 OK in 166ms (Views: 152.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/courier/delete?id=6" for ::1 at 2021-08-01 14:01:58 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 6]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.6ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mCourier Destroy (0.4ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 24ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:01:58 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 68ms (Views: 66.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/delete?id=3" for ::1 at 2021-08-01 14:02:02 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 3]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.6ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mCourier Destroy (0.4ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 26ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:02:02 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/delete?id=2" for ::1 at 2021-08-01 14:02:04 +0300
+Processing by CourierController#delete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 2]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.5ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mPackage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "packages" WHERE "packages"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[36mCourier Destroy (0.3ms)[0m  [1m[31mDELETE FROM "couriers" WHERE "couriers"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/courier_controller.rb:88
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:88
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 43ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:02:04 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  Rendered courier/list.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-08-01 14:02:05 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-08-01 14:02:10 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iHXza6/p2dSqTyZf03q1X+IvcoIHVXfPNHTkrVqkKcRhD65xuBybvEuhFgD+PqhHeW0r453utkk3YWj20ooi3w==", "courier"=>{"name"=>"Roman", "email"=>"roma@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[36mCourier Create (0.6ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Roman"], ["email", "roma@gmail.com"], ["created_at", "2021-08-01 11:02:10.667489"], ["updated_at", "2021-08-01 11:02:10.667489"]]
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 20ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:02:10 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 67ms (Views: 65.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-08-01 14:02:12 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 67ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-08-01 14:02:23 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IivmdNhsrIFszj+SbGLUFKHtHcXvoNngHBms3JQg4CnLUbtuz5nu6Y0gD81BJskMOq9EpHUbGGYfDCCHHA7rMg==", "courier"=>{"name"=>"Vera", "email"=>"vera@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[36mCourier Create (0.4ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Vera"], ["email", "vera@gmail.com"], ["created_at", "2021-08-01 11:02:24.003428"], ["updated_at", "2021-08-01 11:02:24.003428"]]
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 15ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:02:24 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 77ms (Views: 75.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-08-01 14:02:25 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 68ms (Views: 65.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-08-01 14:02:34 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9qCrTPSyptuROhMvaogAWboq4VIClRmPM1l6ej6pPscf2vZW40fks3DUI3BHzB1BIWi4M5gu2AkwTPYhtoc13A==", "courier"=>{"name"=>"Nata", "email"=>"nata@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[36mCourier Create (0.5ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nata"], ["email", "nata@gmail.com"], ["created_at", "2021-08-01 11:02:34.931975"], ["updated_at", "2021-08-01 11:02:34.931975"]]
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 17ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:02:34 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=7" for ::1 at 2021-08-01 14:02:36 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 7]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 74ms (Views: 70.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package?id=7" for ::1 at 2021-08-01 14:02:45 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 84ms (Views: 80.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-08-01 14:03:08 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SPUFl5E/+BqyIWmJKrmoOcTR43aRvljfZHgVdNJuGuBWZ7u6N5qwoQOqevz5RCd3W5DJ//kJ0tKvitcsAvxXOQ==", "packages"=>{"tracking_number"=>"1", "delivery_status"=>"false", "courier_id"=>"7"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mPackage Create (0.5ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 7], ["tracking_number", "1"], ["delivery_status", 0], ["created_at", "2021-08-01 11:03:08.898962"], ["updated_at", "2021-08-01 11:03:08.898962"]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 20ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:03:08 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 76ms (Views: 73.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=7" for ::1 at 2021-08-01 14:03:10 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 7]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 65ms (Views: 61.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_package?id=12" for ::1 at 2021-08-01 14:03:13 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mPackage Load (0.4ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:13
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 76ms (Views: 71.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/new_package?id=7" for ::1 at 2021-08-01 14:03:22 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 71ms (Views: 67.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=7" for ::1 at 2021-08-01 14:03:27 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 7]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 70ms (Views: 67.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/new_package?id=7" for ::1 at 2021-08-01 14:03:28 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 82ms (Views: 78.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-08-01 14:03:45 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zTl7lrRLkKxkGBH3+FxlHNavp4gkbv+yOnkIFrly5YLTq8W7Eu7YF9WTAoIroepSSe6NAUzZdb/xi8pOaeCoWw==", "packages"=>{"tracking_number"=>"2", "delivery_status"=>"false", "courier_id"=>"9"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mPackage Create (0.6ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 9], ["tracking_number", "2"], ["delivery_status", 0], ["created_at", "2021-08-01 11:03:45.067736"], ["updated_at", "2021-08-01 11:03:45.067736"]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 26ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:03:45 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 67ms (Views: 64.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=9" for ::1 at 2021-08-01 14:03:47 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 9]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 84ms (Views: 80.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_courier?id=9" for ::1 at 2021-08-01 14:03:51 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 9]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 81ms (Views: 75.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courier/new_package?id=9" for ::1 at 2021-08-01 14:03:52 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 76ms (Views: 73.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-08-01 14:04:03 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QmHl5u2xsAnQwMtH91GpbZCOXQzefj4gHdm8OL4LqH9c81vLSxT4smFL2DIkrCYjD893hbbJtC3WK35gbpnlpg==", "packages"=>{"tracking_number"=>"3", "delivery_status"=>"false", "courier_id"=>"8"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mPackage Create (0.5ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 8], ["tracking_number", "3"], ["delivery_status", 0], ["created_at", "2021-08-01 11:04:03.316232"], ["updated_at", "2021-08-01 11:04:03.316232"]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 21ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:03 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 77ms (Views: 75.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_courier?id=7" for ::1 at 2021-08-01 14:04:05 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 7]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 71ms (Views: 67.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:07 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 81ms (Views: 78.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/show_courier?id=8" for ::1 at 2021-08-01 14:04:08 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 8]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 77ms (Views: 74.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:10 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (3.5ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 81ms (Views: 75.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/courier/show_courier?id=9" for ::1 at 2021-08-01 14:04:11 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 9]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 59ms (Views: 56.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:12 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/show_courier?id=9" for ::1 at 2021-08-01 14:04:14 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 9]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 75ms (Views: 71.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package?id=9" for ::1 at 2021-08-01 14:04:16 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 77ms (Views: 74.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-08-01 14:04:26 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7yFnNQsdOLgoxjuWOrTUCOAV3ILLjLqpFvparIrpOg/xs9kYrbhwA5lNKOPpSVtGf1T2C6M7MKTdCJj0Wnt31g==", "packages"=>{"tracking_number"=>"4", "delivery_status"=>"false", "courier_id"=>"9"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mPackage Create (0.6ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 9], ["tracking_number", "4"], ["delivery_status", 0], ["created_at", "2021-08-01 11:04:26.857584"], ["updated_at", "2021-08-01 11:04:26.857584"]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 19ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:26 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=9" for ::1 at 2021-08-01 14:04:28 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 9]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 66ms (Views: 63.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courier/show_courier?id=7" for ::1 at 2021-08-01 14:04:34 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 7]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 72ms (Views: 69.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package?id=7" for ::1 at 2021-08-01 14:04:46 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 71ms (Views: 65.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:04:47 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 96ms (Views: 93.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-08-01 14:04:50 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 75ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:05:03 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 81ms (Views: 78.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/new" for ::1 at 2021-08-01 14:05:05 +0300
+Processing by CourierController#new as HTML
+  Rendering courier/new.html.erb within layouts/application
+  Rendered courier/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 70ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courier/create" for ::1 at 2021-08-01 14:05:22 +0300
+Processing by CourierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OXxcdLouDTd5zLtIdyEipK86cNcy1q1P2EX+2UUeaxbQBgFurdtPX5giixdaZT+8NHgptqhtbMnbUHKCzTBgDQ==", "courier"=>{"name"=>"Polya", "email"=>"polya@gmail.com"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[36mCourier Create (0.6ms)[0m  [1m[32mINSERT INTO "couriers" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Polya"], ["email", "polya@gmail.com"], ["created_at", "2021-08-01 11:05:22.394767"], ["updated_at", "2021-08-01 11:05:22.394767"]]
+  ↳ app/controllers/courier_controller.rb:53
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:53
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 16ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:05:22 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 76ms (Views: 73.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_courier?id=10" for ::1 at 2021-08-01 14:05:27 +0300
+Processing by CourierController#show_courier as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:93
+  Rendering courier/show_courier.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 10]]
+  ↳ app/views/courier/show_courier.html.erb:5
+  Rendered courier/show_courier.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/new_package?id=10" for ::1 at 2021-08-01 14:05:28 +0300
+Processing by CourierController#new_package as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:24
+  Rendering courier/new_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/new_package.html.erb:11
+  Rendered courier/new_package.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 79ms (Views: 75.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/courier/create_package" for ::1 at 2021-08-01 14:05:36 +0300
+Processing by CourierController#create_package as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dcyjI/HT6Sj1GtZtQBbyzOIkKelXImNKVMa3Q7KWlWlrXh0OV3ahk0SRxRiT632CfWUDYD+V6UefNHUbYgTYsA==", "packages"=>{"tracking_number"=>"6", "delivery_status"=>"false", "courier_id"=>"10"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[36mPackage Create (0.6ms)[0m  [1m[32mINSERT INTO "packages" ("courier_id", "tracking_number", "delivery_status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["courier_id", 10], ["tracking_number", "6"], ["delivery_status", 0], ["created_at", "2021-08-01 11:05:36.606409"], ["updated_at", "2021-08-01 11:05:36.606409"]]
+  ↳ app/controllers/courier_controller.rb:32
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:32
+Redirected to http://localhost:3000/courier/list
+Completed 302 Found in 16ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/courier/list" for ::1 at 2021-08-01 14:05:36 +0300
+Processing by CourierController#list as HTML
+  Rendering courier/list.html.erb within layouts/application
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:1
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers"[0m
+  ↳ app/views/courier/list.html.erb:7
+  Rendered courier/list.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/edit?id=10" for ::1 at 2021-08-01 14:05:40 +0300
+Processing by CourierController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.5ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:67
+  Rendering courier/edit.html.erb within layouts/application
+  Rendered courier/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 71ms (Views: 67.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/courier/update?id=10" for ::1 at 2021-08-01 14:05:53 +0300
+Processing by CourierController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"anWhZ0Ve5eK07WLmNTqYV8VsE/RHzMxX77ApgiZtuQ8wCWieZQURNeeC8VOsJMPxRUl72t4PuZcbVj9xhuvF2Q==", "courier"=>{"name"=>"Polina", "email"=>"polina@gmail.com"}, "commit"=>"Save changes", "id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:72
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courier_controller.rb:74
+  [1m[36mCourier Update (3.6ms)[0m  [1m[33mUPDATE "couriers" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "couriers"."id" = ?[0m  [["name", "Polina"], ["email", "polina@gmail.com"], ["updated_at", "2021-08-01 11:05:53.042764"], ["id", 10]]
+  ↳ app/controllers/courier_controller.rb:74
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courier_controller.rb:74
+Redirected to http://localhost:3000/courier/show?id=10
+Completed 302 Found in 22ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/courier/show?id=10" for ::1 at 2021-08-01 14:05:53 +0300
+Processing by CourierController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:8
+  Rendering courier/show.html.erb within layouts/application
+  Rendered courier/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 76ms (Views: 70.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courier/show_couriers?id=10" for ::1 at 2021-08-01 14:05:57 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:97
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 10]]
+  ↳ app/views/courier/show_couriers.html.erb:5
+  Rendered courier/show_couriers.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 73ms (Views: 69.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show?id=10" for ::1 at 2021-08-01 14:06:24 +0300
+Processing by CourierController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.3ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:8
+  Rendering courier/show.html.erb within layouts/application
+  Rendered courier/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 76ms (Views: 72.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courier/show_couriers?id=10" for ::1 at 2021-08-01 14:06:27 +0300
+Processing by CourierController#show_couriers as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:97
+  Rendering courier/show_couriers.html.erb within layouts/application
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT "packages".* FROM "packages" WHERE "packages"."courier_id" = ?[0m  [["courier_id", 10]]
+  ↳ app/views/courier/show_couriers.html.erb:5
+  Rendered courier/show_couriers.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 66ms (Views: 63.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_package?id=16" for ::1 at 2021-08-01 14:06:29 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPackage Load (0.2ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:13
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 75ms (Views: 71.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courier/show_package?id=16" for ::1 at 2021-08-01 14:06:35 +0300
+Processing by CourierController#show_package as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPackage Load (0.3ms)[0m  [1m[34mSELECT  "packages".* FROM "packages" WHERE "packages"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/courier_controller.rb:13
+  Rendering courier/show_package.html.erb within layouts/application
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT  "couriers".* FROM "couriers" WHERE "couriers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/courier/show_package.html.erb:5
+  Rendered courier/show_package.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 68ms (Views: 64.7ms | ActiveRecord: 0.5ms)
+
+
